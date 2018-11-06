@@ -9,9 +9,19 @@ import { User } from './user.model';
 export class AddressCardComponent implements OnInit {
 
   @Input('user') user: User;
+  isCollapsed:boolean = true;
+  buttonText: string = 'Expand';
 
   constructor() { 
-   
+  }
+
+  toggleCollapse(){
+    this.isCollapsed = !this.isCollapsed;
+    this.toggleButtonText();
+  }
+
+  toggleButtonText(){
+    this.buttonText = this.isCollapsed?'Expand':'Collapse'
   }
 
   ngOnInit() {
